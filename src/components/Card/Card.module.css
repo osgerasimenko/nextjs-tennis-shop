@@ -1,0 +1,19 @@
+
+.container {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-family: sans-serif, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.image {
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  object-fit: contain; 
+}

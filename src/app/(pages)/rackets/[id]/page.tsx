@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import {RacketsDetailsClientPage} from './RacketsDetailsClientPage';
+import { RacketsDetailsPage as RacketsDetailsPageComponent } from './RacketsDetailsPage';
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -11,7 +11,7 @@ export const generateStaticParams = () => {
 
 const RacketsDetailsPage: FC<Props> = async ({ params }) => {
   const { id } = await params;
-  return <RacketsDetailsClientPage id={id} />;
+  return <RacketsDetailsPageComponent id={id} />;
 }
 
 export default RacketsDetailsPage;

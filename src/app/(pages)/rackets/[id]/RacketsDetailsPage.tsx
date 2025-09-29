@@ -1,21 +1,18 @@
 'use client';
 
-import { FC, useMemo } from 'react';
-import { useParams } from 'next/navigation';
+import { FC } from 'react';
 import Image from 'next/image';
-import {rackets} from '@/mocks/rackets';
+import { rackets } from '@/mocks/rackets';
 
-import styles from './RacketsDetailsClientPage.module.css';
+import styles from './RacketsDetailsPage.module.css';
 
 type Props = {
   id: string;
 };
 
+export const RacketsDetailsPage: FC<Props> = ({ id } ) => {
 
-export const RacketsDetailsClientPage: FC<Props> = () => {
-  const params = useParams();
-
-  const data = useMemo(() => rackets.find(item => item.id.toString() === params.id), [params.id]);
+  const data = rackets.find(item => item.id.toString() === id);
 
   if (!data) {
     return;

@@ -14,7 +14,7 @@ type NavLinkProps = {
 
 export const NavLink: FC<NavLinkProps> = ({ href, children }) => {
   const pathname = usePathname();
-  const linkClassName = classNames(styles.link, pathname === href ? styles['link-active'] : {});
+  const linkClassName = classNames(styles.link, {[styles['linkActive']]: pathname === href});
 
   return (
     <Link href={href} prefetch={false} className={linkClassName}>

@@ -1,5 +1,3 @@
-'use client';
-
 import { FC } from 'react';
 import { NavLink } from '@/components/NavLink/NavLink';
 import styles from './Header.module.css';

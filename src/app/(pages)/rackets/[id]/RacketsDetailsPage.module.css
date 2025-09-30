@@ -1,0 +1,47 @@
+
+.container {
+  margin: 20px;
+  display: flex;
+  flex: 1;
+  gap: 20px;
+  align-items: center;
+
+  > div {
+      flex: 1; 
+      min-width: 0; 
+  }
+}
+
+.brand {
+  font-family: sans-serif, Arial, Helvetica, sans-serif;
+  color: darkgray;
+  font-size: 18px;
+}
+
+.title {
+  font-family: sans-serif, Arial, Helvetica, sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+  margin: 20px 0;
+}
+
+.description {
+  font-family: sans-serif, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 32px;
+  color: #383838;
+}
+
+.price { 
+  text-align: center;
+  font-size: 38px;
+  font-weight: 600;
+}
+
+.image {
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  object-fit: contain; 
+  display: flex;
+  flex: 1;
+}

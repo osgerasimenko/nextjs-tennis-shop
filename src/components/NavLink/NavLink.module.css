@@ -1,0 +1,9 @@
+.link {
+  color: black;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.linkActive {
+  color: orange;
+}

@@ -1,0 +1,25 @@
+.container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  border-top: 1px solid lightgrey;
+}
+
+.title {
+  margin-top: 40px;
+  margin-left: 40px;
+  font-family: sans-serif, Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.copyright {
+  position: absolute;
+  left: 40px;
+  bottom: 20px;
+  font-size: 16px;
+  font-family: sans-serif, Arial, Helvetica, sans-serif;
+  color: gray;
+}

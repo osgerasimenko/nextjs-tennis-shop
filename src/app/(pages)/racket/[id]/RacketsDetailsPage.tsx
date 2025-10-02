@@ -2,20 +2,19 @@
 
 import { FC } from 'react';
 import Image from 'next/image';
-import { rackets } from '@/mocks/rackets';
+import { notFound } from 'next/navigation';
+import type { IRacket } from '@/services/rackets/types';
 
 import styles from './RacketsDetailsPage.module.css';
 
 type Props = {
-  id: string;
+  data?: IRacket;
 };
 
-export const RacketsDetailsPage: FC<Props> = ({ id } ) => {
-
-  const data = rackets.find(item => item.id.toString() === id);
+export const RacketsDetailsPage: FC<Props> = ({ data } ) => {
 
   if (!data) {
-    return;
+    return notFound();
   }
 
   return (

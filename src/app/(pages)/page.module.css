@@ -2,10 +2,15 @@
 .container {
   margin: 20px;
   display: flex;
-  flex: 1;
+  flex-wrap: wrap;
   gap: 20px;
   align-items: center;
   justify-content: space-between;
+}
+
+.container > div {
+  flex: 1 1 calc(33.333% - 20px);
+  box-sizing: border-box;
 }
 
 .title {

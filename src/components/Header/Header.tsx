@@ -9,6 +9,7 @@ export const Header: FC = () => (
     <div  className={styles['navigation-container']}>
       <NavLink href="/">Главная</NavLink>
       <NavLink href="/rackets">Ракетки</NavLink>
+      <NavLink href="/rackets/top10">Tоп-10</NavLink>
     </div>
   </div>
 );

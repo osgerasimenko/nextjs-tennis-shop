@@ -4,6 +4,11 @@
   flex: 1;
   align-items: center;
   flex-direction: column;
+  min-width: 300px;
+  min-height: 300px;
+  object-fit: contain;
+  padding: 8px;
+  justify-self: center;
 }
 
 .title {

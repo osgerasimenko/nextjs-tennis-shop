@@ -1,17 +1,16 @@
 import { FC } from 'react';
+import { getRacketById } from "@/services/rackets/get-racket-by-id";
 import { RacketsDetailsPage as RacketsDetailsPageComponent } from './RacketsDetailsPage';
 
 type Props = {
   params: Promise<{ id: string }>;
 };
 
-export const generateStaticParams = () => {
-  return [{ id: "1" }, { id: "2" }, { id: "3" }];
-};
-
 const RacketsDetailsPage: FC<Props> = async ({ params }) => {
   const { id } = await params;
-  return <RacketsDetailsPageComponent id={id} />;
+
+  const { data } = await getRacketById({ id });
+  return <RacketsDetailsPageComponent data={data} />;
 }
 
 export default RacketsDetailsPage;

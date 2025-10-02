@@ -13,7 +13,7 @@ type Props = {
 export const Card: FC<Props> = ({ id, title, image }) => {
   return (
     <div className={styles.container}>
-      <Link href={`/rackets/${id}`} prefetch={false}>
+      <Link href={`/racket/${id}`} prefetch={false}>
         <Image
             src={image}
             alt={title}

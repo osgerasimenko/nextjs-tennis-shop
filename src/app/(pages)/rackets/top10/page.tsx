@@ -1,12 +1,14 @@
 import { FC } from 'react';
-import { Slider } from '@/components/Slider/Slider';
 import { Card } from '@/components/Card/Card';
-import { getRackets } from "@/services/rackets/get-rackets";
-import styles from './RacketsPage.module.css';
+import { Slider } from '@/components/Slider/Slider';
+import { getTop10Rackets } from "@/services/rackets/get-top-10-rackets";
 
-const RacketsPage: FC = async () => {
+
+import styles from './RacketsTop10Page.module.css';
+
+const RacketsTop10Page: FC = async () => {
   
-  const { data } = await getRackets({ limit: 20 });
+  const { data } = await getTop10Rackets();
 
   if (!data) {
     return;
@@ -14,7 +16,7 @@ const RacketsPage: FC = async () => {
 
   return (
     <div>
-      <div className={styles.title}>Ракетки</div>
+      <div className={styles.title}>Ракетки Top 10</div>
       <Slider>
         {data.map((racket) => (
           <Card
@@ -29,4 +31,4 @@ const RacketsPage: FC = async () => {
   );
 }
 
-export default RacketsPage;
+export default RacketsTop10Page;

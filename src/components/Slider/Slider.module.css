@@ -1,0 +1,26 @@
+.slider {
+  max-width: 80vw;
+  &:global(.slick-initialized) {
+    margin-left: -15px;
+    margin-right: -10px;
+    margin-bottom: 50px;
+
+    :global(.slick-slide) {
+      & > div {
+        padding-left: 15px;
+      }
+    }
+    :global(.slick-dots) {
+      margin-bottom: -40px;
+      li button:hover:after {
+        background-color: green;
+      }
+      :global(.slick-active) {
+        button:after {
+          background-color: orange;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}

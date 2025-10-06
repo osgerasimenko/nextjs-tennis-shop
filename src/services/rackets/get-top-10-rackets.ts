@@ -4,7 +4,7 @@ import type { IRacket, Response } from "./types";
 export const getTop10Rackets = async (): Promise<Response<IRacket[]>> => {
   const result = await fetch(`${BASE_API_URL}/top-10`, {
     next: {
-      // revalidate: 15,
+      revalidate: 15,
       tags: ["getTop10Rackets"],
     },
   });

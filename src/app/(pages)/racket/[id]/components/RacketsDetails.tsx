@@ -5,14 +5,13 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import type { IRacket } from '@/services/rackets/types';
 
-import styles from './RacketsDetailsPage.module.css';
+import styles from './RacketsDetails.module.css';
 
 type Props = {
   data?: IRacket;
 };
 
-export const RacketsDetailsPage: FC<Props> = ({ data } ) => {
-
+export const RacketsDetails: FC<Props> = ({ data } ) => {
   if (!data) {
     return notFound();
   }

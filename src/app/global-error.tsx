@@ -1,7 +1,7 @@
 "use client";
 import { FC } from 'react';
 
-import { Error as ErrorComponent } from '@/components/Error/Error';
+import { Error } from '@/components/Error/Error';
 
 type Props = {
   error: Error & { digest?: string };
@@ -11,7 +11,7 @@ type Props = {
 const GlobalError: FC<Props> = ({ error, reset }) => (
   <html>
     <body>
-      <ErrorComponent error={error} reset={reset} />
+      <Error error={error} reset={reset} />
     </body>
   </html>
 );

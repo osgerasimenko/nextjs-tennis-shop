@@ -1,5 +1,5 @@
 "use client";
 
-import { Error as ErrorComponent } from '@/components/Error/Error';
+import { Error } from '@/components/Error/Error';
 
-export default ErrorComponent;
+export default Error;

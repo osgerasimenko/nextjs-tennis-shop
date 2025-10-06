@@ -1,16 +1,35 @@
 import { FC } from 'react';
-import { getRacketById } from "@/services/rackets/get-racket-by-id";
-import { RacketsDetailsPage as RacketsDetailsPageComponent } from './RacketsDetailsPage';
+import { Metadata } from "next";
+import { getMetaRacketById } from "@/services/rackets/get-meta-racket-by-id";
+import { RacketsDetailsContainer } from './components/RacketsDetailsContainer';
 
 type Props = {
   params: Promise<{ id: string }>;
 };
 
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const { id } = await params;
+
+  const { data } = await getMetaRacketById({ id });
+
+  if (!data) {
+    return {
+      title: "Racket Page",
+    };
+  }
+
+  return {
+    title: data.name,
+    description: data.description,
+  };
+};
+
 const RacketsDetailsPage: FC<Props> = async ({ params }) => {
   const { id } = await params;
 
-  const { data } = await getRacketById({ id });
-  return <RacketsDetailsPageComponent data={data} />;
+  return <RacketsDetailsContainer id={id} />;
 }
 
 export default RacketsDetailsPage;

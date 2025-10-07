@@ -1,9 +1,13 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, use } from 'react';
+
+import { UserContext } from "@/app/providers/user-provider";
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import type { IRacket } from '@/services/rackets/types';
+import { MdFavorite } from "react-icons/md";
+import { MdFavoriteBorder } from "react-icons/md";
 
 import styles from './RacketsDetails.module.css';
 
@@ -12,6 +16,7 @@ type Props = {
 };
 
 export const RacketsDetails: FC<Props> = ({ data } ) => {
+    const { user } = use(UserContext);
   if (!data) {
     return notFound();
   }
@@ -22,6 +27,9 @@ export const RacketsDetails: FC<Props> = ({ data } ) => {
         <div className={styles.brand}>{data.brand.name}</div>
         <div className={styles.title}>{data.name}</div>
         <div className={styles.description}>{data.description}</div>
+        {user && 
+          (data.userData?.isFavorite ? <MdFavorite size={30} color="red"/> : <MdFavoriteBorder size={30} color="red"/>)
+        }
       </div>
       <Image
         src={data.imageUrl}

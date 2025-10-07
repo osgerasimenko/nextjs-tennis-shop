@@ -1,8 +1,6 @@
 import { FC } from 'react';
 import { Metadata } from "next";
 import NextTopLoader from 'nextjs-toploader';
-import { Footer } from '@/components/Footer/Footer';
-import { Header } from '@/components/Header/Header';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -20,9 +18,7 @@ const RootLayout: FC<
     <html lang="en">
       <body>
         <NextTopLoader showSpinner={false} />
-        <Header/>
-          {children}
-        <Footer/>
+        {children}
       </body>
     </html>
   );

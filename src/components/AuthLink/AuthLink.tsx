@@ -8,11 +8,7 @@ import { FC } from 'react';
 import { NavLink } from '@/components/NavLink/NavLink';
 import styles from './AuthLink.module.css';
 
-export const AuthLink: FC = () => {
-  const { user } = use(UserContext);
-  const [isPending, startTransition] = useTransition();
-
-  const handleLogout = async () => {
+const handleLogout = async () => {
   await fetch(`${BASE_API_URL}/auth/logout`, {
     credentials: "include",
     method: "DELETE",
@@ -20,6 +16,10 @@ export const AuthLink: FC = () => {
 
   location.assign("/");
 };
+
+export const AuthLink: FC = () => {
+  const { user } = use(UserContext);
+  const [isPending, startTransition] = useTransition();
 
   return (
     <div  className={styles['navigation-container']}>

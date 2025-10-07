@@ -19,7 +19,7 @@ export const signupAction = async (_: SignupState, formData: FormData) => {
   });
 
   if (result.status !== 200) {
-    return { error: "invalid login or password" };
+    return { error: "user exists" };
   }
 
   const cookiesStore = await cookies();

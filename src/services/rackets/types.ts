@@ -13,14 +13,12 @@ export interface IRacket {
       id: number;
       name: string;
   };
+  userData?:{
+    isFavorite: boolean;
+  }
 };
 
 export interface IBrand {
   id: number;
   name: string;
 };
-
-export type Response<Entity> = {
-  isError: boolean;
-  data?: Entity;
-}

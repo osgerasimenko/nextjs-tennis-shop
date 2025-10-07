@@ -1,5 +1,6 @@
 import { BASE_API_URL, TOP_10_RACKETS_TAG } from "@/services/consts";
-import type { IRacket, Response } from "./types";
+import type { IRacket } from "./types";
+import type { Response } from "../types";
 
 export const getTop10Rackets = async (): Promise<Response<IRacket[]>> => {
   const result = await fetch(`${BASE_API_URL}/top-10`, {

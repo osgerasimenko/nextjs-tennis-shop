@@ -1,5 +1,6 @@
 import { BASE_API_URL } from "@/services/consts";
-import type { IBrand, Response } from "./types";
+import type { IBrand } from "./types";
+import type { Response } from "../types";
 
 export const getBrands = async (): Promise<Response<IBrand[]>> => {
   const result = await fetch(`${BASE_API_URL}/brands`);

@@ -30,6 +30,7 @@
   font-size: 18px;
   line-height: 32px;
   color: #383838;
+  margin-bottom: 20px;
 }
 
 .price { 
@@ -44,4 +45,11 @@
   object-fit: contain; 
   display: flex;
   flex: 1;
+}
+
+.favorite {
+  border: 1px solid red;
+   position: absolute;
+   top: 20px;
+   right: 20px;
 }

@@ -1,5 +1,6 @@
 import { BASE_API_URL } from "@/services/consts";
-import type { IRacket, Response } from "./types";
+import type { IRacket } from "./types";
+import type { Response } from "../types";
 
 interface Params {
   page?: number;

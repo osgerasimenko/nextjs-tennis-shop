@@ -3,20 +3,31 @@
 import { FC, use } from 'react';
 
 import { UserContext } from "@/app/providers/user-provider";
+import { useHydrateFavorite, useIsFavoriteById } from "@/app/hooks/favorite-hooks";
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import type { IRacket } from '@/services/rackets/types';
-import { MdFavorite } from "react-icons/md";
-import { MdFavoriteBorder } from "react-icons/md";
+import { FavoriteButton } from '@/components/FavoriteButton/FavoriteButton';
 
 import styles from './RacketsDetails.module.css';
 
 type Props = {
-  data?: IRacket;
+  data: IRacket;
 };
 
 export const RacketsDetails: FC<Props> = ({ data } ) => {
-    const { user } = use(UserContext);
+  const { user } = use(UserContext);
+
+  useHydrateFavorite({
+    id: data.id,
+    isFavorite: Boolean(data.userData?.isFavorite),
+  });
+
+  const isFavoriteGlobal = useIsFavoriteById({
+    id: data.id,
+    isFavoriteInitial: Boolean(data.userData?.isFavorite),
+  });
+
   if (!data) {
     return notFound();
   }
@@ -27,9 +38,7 @@ export const RacketsDetails: FC<Props> = ({ data } ) => {
         <div className={styles.brand}>{data.brand.name}</div>
         <div className={styles.title}>{data.name}</div>
         <div className={styles.description}>{data.description}</div>
-        {user && 
-          (data.userData?.isFavorite ? <MdFavorite size={30} color="red"/> : <MdFavoriteBorder size={30} color="red"/>)
-        }
+        {user && <FavoriteButton id={data.id} isFavorite={isFavoriteGlobal} />}
       </div>
       <Image
         src={data.imageUrl}

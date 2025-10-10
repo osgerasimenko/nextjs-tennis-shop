@@ -1,12 +1,14 @@
 "use client";
 
-import { IUser } from "@/types/user";
+import { IUser } from "@/services/user/types";
 import { createContext, FC, PropsWithChildren } from "react";
 
 interface UserContextType {
   user: IUser | undefined;
 }
-export const UserContext = createContext<UserContextType>({ user: undefined });
+export const UserContext = createContext<UserContextType>(
+  { user: undefined }
+);
 
 interface Props extends PropsWithChildren {
   user: IUser | undefined;

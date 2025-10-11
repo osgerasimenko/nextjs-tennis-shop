@@ -1,6 +1,7 @@
 import { BASE_API_URL } from "@/services/consts";
 import type { IRacket } from "./types";
 import type { Response } from "../types";
+import { cookies } from "next/headers";
 
 type Params = {
   id: string;
@@ -9,7 +10,13 @@ type Params = {
 export const getRacketById = async ({
   id,
 }: Params): Promise<Response<IRacket>> => {
-  const result = await fetch(`${BASE_API_URL}/product/${id}`);
+  const cookieStore = await cookies();
+  
+  const result = await fetch(`${BASE_API_URL}/product/${id}`, {
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
+  });
 
   if (result.status === 404) {
     return { isError: false, data: undefined };

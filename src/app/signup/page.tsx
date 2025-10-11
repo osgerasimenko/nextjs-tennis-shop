@@ -29,7 +29,7 @@ const Signup = () => {
 
         <div>
           <label htmlFor='password'>Password:</label>
-          <input name='password' type='text' required />
+          <input name='password' type='password' required />
         </div>
         {error && <div>{error}</div>}
         <button disabled={isPending}>Signup</button>
